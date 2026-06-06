@@ -1,0 +1,69 @@
+/* Shared styles for OBD Pilot legal & support pages.
+   Mirrors the landing page's dark + lime brand tokens. */
+:root{
+  --round:"Nunito", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --sans:-apple-system, "SF Pro Text", system-ui, "Segoe UI", sans-serif;
+  --accent:#CFEF4A; --accent-ink:#11140A; --accent-rgb:207,239,74;
+  --bg:#0B0C0E; --bg-grad:radial-gradient(120% 60% at 50% -10%, #16181C 0%, #0B0C0E 58%);
+  --surface:#15171A; --hair:rgba(255,255,255,.09); --hair2:rgba(255,255,255,.06);
+  --text:#F2F4F6; --text2:rgba(236,239,243,.72); --text3:rgba(236,239,243,.40);
+  --nav-bg:rgba(11,12,14,.72);
+  --maxw:760px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); background-image:var(--bg-grad); background-attachment:fixed;
+  color:var(--text); font-family:var(--sans); -webkit-font-smoothing:antialiased; line-height:1.62;
+}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);
+  -webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);
+  border-bottom:1px solid var(--hair2);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;
+  justify-content:space-between;height:64px;gap:16px;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--round);font-weight:800;
+  font-size:19px;letter-spacing:-.03em;color:var(--text);}
+.logo:hover{text-decoration:none;}
+.brand-mark{width:28px;height:28px;display:block;border-radius:7px;}
+.brand-mark .bg{fill:var(--accent);}
+.brand-mark .ink{stroke:var(--accent-ink);fill:none;stroke-linecap:round;}
+.brand-mark .ink-fill{fill:var(--accent-ink);}
+.nav-sub{display:flex;align-items:center;gap:22px;font-size:14.5px;font-weight:600;}
+.nav-sub a{color:var(--text2);}
+.nav-sub a:hover{color:var(--text);text-decoration:none;}
+.nav-sub a.on{color:var(--accent);}
+@media (max-width:560px){.nav-sub{gap:15px;font-size:13.5px;}.logo span{display:none;}}
+
+/* Document */
+.doc{padding:56px 0 96px;}
+.doc h1{font-family:var(--round);font-weight:900;letter-spacing:-.03em;font-size:clamp(30px,5vw,42px);
+  line-height:1.08;margin:0 0 10px;}
+.doc .meta{color:var(--text3);font-size:13.5px;margin:0 0 40px;}
+.doc h2{font-family:var(--round);font-weight:800;letter-spacing:-.02em;font-size:23px;
+  margin:46px 0 14px;padding-top:8px;}
+.doc h3{font-family:var(--round);font-weight:800;font-size:17.5px;margin:28px 0 8px;color:var(--text);}
+.doc p{margin:0 0 16px;color:var(--text2);}
+.doc strong{color:var(--text);font-weight:700;}
+.doc ul{margin:0 0 18px;padding-left:22px;color:var(--text2);}
+.doc li{margin:0 0 8px;}
+.doc table{width:100%;border-collapse:collapse;margin:6px 0 24px;font-size:14.5px;}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:11px 14px;border:1px solid var(--hair);}
+.doc th{background:var(--surface);font-family:var(--round);font-weight:800;color:var(--text);font-size:13.5px;}
+.doc td{color:var(--text2);}
+.doc .faq-q{color:var(--text);font-weight:700;margin:24px 0 6px;}
+.doc hr{border:none;border-top:1px solid var(--hair2);margin:40px 0;}
+.callout{background:var(--surface);border:1px solid var(--hair);border-radius:14px;
+  padding:18px 20px;margin:0 0 28px;color:var(--text2);font-size:14.5px;}
+.callout strong{color:var(--text);}
+
+/* Footer */
+.footer{border-top:1px solid var(--hair2);padding:34px 0;}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;
+  justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--text3);}
+.footer-inner a{color:var(--text2);font-weight:600;}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="lime">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — OBD Pilot</title>
+<meta name="description" content="How OBD Pilot handles your data. Your vehicle data stays on your device by default." />
+<meta name="robots" content="index,follow" />
+<link rel="icon" type="image/png" href="assets/app-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="legal.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 132 132" aria-hidden="true">
+        <rect class="bg" width="132" height="132" rx="29.7"></rect>
+        <g transform="translate(15.84 15.84)">
+          <path class="ink" d="M63.52 21.0 A32 32 0 1 1 36.48 21.0" stroke-width="11"></path>
+          <line class="ink" x1="50" y1="50" x2="66.85" y2="35.86" stroke-width="6.5"></line>
+          <circle class="ink-fill" cx="74.5" cy="29.4" r="3.6"></circle>
+          <circle class="ink-fill" cx="50" cy="50" r="6"></circle>
+        </g>
+      </svg>
+      <span>OBD Pilot</span>
+    </a>
+    <nav class="nav-sub">
+      <a href="privacy.html" class="on">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: June 6, 2026 · Last updated: June 6, 2026</p>
+
+    <h2>1. Who we are</h2>
+    <p>OBD Pilot is an iOS app developed by Shashank Mallela (sole proprietor) ("we", "us"). The app reads diagnostic data from your vehicle via an OBD2 adapter and helps you understand it in plain English using AI.</p>
+    <p>We can be reached at <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> for any privacy-related questions or requests.</p>
+
+    <h2>2. What we collect</h2>
+    <p>OBD Pilot is designed to keep your data on your device whenever possible. The categories below describe everything we <em>can</em> see, even briefly:</p>
+    <h3>On your device only (never sent to us)</h3>
+    <ul>
+      <li>Saved diagnostic scan records (trouble codes, freeze-frame snapshots, sensor data, vehicle make/model/VIN if your adapter reports it)</li>
+      <li>Chat conversations with the AI assistant</li>
+      <li>App preferences (theme, accent colour, units, car nickname)</li>
+      <li>Your OpenAI API key, if you choose to provide one (stored in the iOS Keychain)</li>
+    </ul>
+    <h3>Sent to OpenAI when you use AI features</h3>
+    <ul>
+      <li>The current question or photo you send to the chat</li>
+      <li>The trouble codes, freeze-frame data, and live vehicle readings needed to answer your question</li>
+      <li>A short rolling history of your recent chat with the AI</li>
+    </ul>
+    <h3>Sent to our backend proxy (Pro subscribers only)</h3>
+    <ul>
+      <li>An Apple-signed transaction token proving your subscription is active (we do <strong>not</strong> receive your name, email, Apple ID, or any personally identifying account info from Apple)</li>
+      <li>The chat / analysis request itself, which we then forward to OpenAI on your behalf</li>
+    </ul>
+    <h3>Sent to Apple</h3>
+    <ul>
+      <li>Subscription purchase events handled entirely by Apple's StoreKit. Apple's own privacy policy governs that data.</li>
+    </ul>
+
+    <h2>3. What we do NOT collect</h2>
+    <ul>
+      <li>No analytics, telemetry, or crash reports sent to any third party</li>
+      <li>No advertising identifiers</li>
+      <li>No location data</li>
+      <li>No contacts, calendar, or photo metadata beyond the specific photo you choose to send in a chat</li>
+      <li>No tracking across apps or websites</li>
+    </ul>
+    <p>This is also reflected in the app's Privacy Manifest (<code>PrivacyInfo.xcprivacy</code>) bundled with each release.</p>
+
+    <h2>4. Why your data goes to OpenAI</h2>
+    <p>OBD Pilot uses OpenAI's API to translate cryptic diagnostic codes into useful, conversational advice. OpenAI processes the request, returns an answer, and (per OpenAI's API policy at the time of writing) does <strong>not</strong> use API content to train their models.</p>
+    <p>You can read OpenAI's current API privacy and data handling policy at <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">openai.com/policies/api-data-usage-policies</a>.</p>
+    <p>If you prefer not to use AI features, you can:</p>
+    <ul>
+      <li>Skip the chat tab and use the app for basic scan-and-display only</li>
+      <li>Use Demo Mode, which never sends any data to OpenAI</li>
+    </ul>
+
+    <h2>5. Our sub-processors</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Purpose</th><th>What they see</th></tr></thead>
+      <tbody>
+        <tr><td>OpenAI</td><td>AI answers and image analysis</td><td>The text/photo of your question + the diagnostic context needed to answer it</td></tr>
+        <tr><td>Vercel</td><td>Hosts our proxy for Pro users</td><td>Forwards your request to OpenAI; does not log request bodies or persist user data</td></tr>
+        <tr><td>Apple</td><td>Subscription management</td><td>Subscription transactions and payment details (per Apple's own policies)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. How long data is kept</h2>
+    <ul>
+      <li><strong>On-device data:</strong> stays on your device until you delete the app or use the in-app delete actions (Reports → swipe to delete, New Chat to clear history, Settings → Clear API Key, etc.).</li>
+      <li><strong>OpenAI:</strong> OpenAI retains API request data for up to 30 days for abuse monitoring, then deletes it. See OpenAI's policy linked above.</li>
+      <li><strong>Vercel proxy:</strong> stateless; nothing is logged or persisted.</li>
+      <li><strong>Apple subscription data:</strong> retained per Apple's own policies.</li>
+    </ul>
+
+    <h2>7. Your rights</h2>
+    <p>You can at any time:</p>
+    <ul>
+      <li><strong>Stop using the app:</strong> delete it from your device and all on-device data is removed.</li>
+      <li><strong>Delete your own API key</strong> in Settings → OpenAI Key.</li>
+      <li><strong>Cancel your subscription</strong> via iOS Settings → [Your Name] → Subscriptions.</li>
+      <li><strong>Request access, correction, or deletion</strong> of any data we hold about you by emailing <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. Note that because OBD Pilot doesn't have user accounts and we don't store your data on our servers, there is typically nothing on our end to delete — but we will confirm that in writing.</li>
+    </ul>
+    <p>If you are in the EU/UK, you also have the rights afforded under the GDPR — including access, rectification, erasure, restriction, portability, and objection — and the right to lodge a complaint with your local data protection authority. If you are in California, you have the rights described under the CCPA, which we respect for all users globally.</p>
+
+    <h2>8. Children</h2>
+    <p>OBD Pilot is not directed at children under 13 (or the applicable minimum digital consent age in your jurisdiction). We do not knowingly collect data from children.</p>
+
+    <h2>9. International data transfers</h2>
+    <p>OpenAI processes requests on servers in the United States. Vercel also processes requests in the United States. By using AI features in OBD Pilot, you consent to this transfer.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>If we materially change this policy we will update the "Last updated" date above and notify users via an in-app prompt on next launch.</p>
+
+    <h2>11. Contact</h2>
+    <p>Privacy questions or requests: <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 OBD Pilot. All rights reserved.</span>
+    <span class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

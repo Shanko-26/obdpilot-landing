@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="lime">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Support — OBD Pilot</title>
+<meta name="description" content="Get help with OBD Pilot — setup, adapters, subscriptions, and troubleshooting." />
+<meta name="robots" content="index,follow" />
+<link rel="icon" type="image/png" href="assets/app-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="legal.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 132 132" aria-hidden="true">
+        <rect class="bg" width="132" height="132" rx="29.7"></rect>
+        <g transform="translate(15.84 15.84)">
+          <path class="ink" d="M63.52 21.0 A32 32 0 1 1 36.48 21.0" stroke-width="11"></path>
+          <line class="ink" x1="50" y1="50" x2="66.85" y2="35.86" stroke-width="6.5"></line>
+          <circle class="ink-fill" cx="74.5" cy="29.4" r="3.6"></circle>
+          <circle class="ink-fill" cx="50" cy="50" r="6"></circle>
+        </g>
+      </svg>
+      <span>OBD Pilot</span>
+    </a>
+    <nav class="nav-sub">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html" class="on">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap">
+    <h1>Support</h1>
+    <p class="meta">Last updated: June 6, 2026</p>
+
+    <div class="callout">
+      The fastest way to reach us is email: <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. We typically respond within 1–2 business days.
+    </div>
+
+    <h2>Getting help</h2>
+    <p>When you write in, please include:</p>
+    <ul>
+      <li>Your iOS version (Settings → General → About → Software Version)</li>
+      <li>Your iPhone model</li>
+      <li>The OBD Pilot version (Settings → About → Version)</li>
+      <li>What you were trying to do</li>
+      <li>What actually happened</li>
+      <li>Screenshots if relevant</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <p class="faq-q">My adapter isn't being detected — what do I do?</p>
+    <ul>
+      <li>Make sure the adapter is plugged in and the ignition is on.</li>
+      <li>For Bluetooth: pair through OBD Pilot's "Connect to your car" flow, not iOS Settings. ELM327 adapters don't appear in iOS's general Bluetooth list.</li>
+      <li>For WiFi: join the adapter's network in iOS Settings → Wi-Fi first (often "WiFi_OBDII"), then open OBD Pilot.</li>
+      <li>iOS will probably say the adapter network has "no internet" — that's normal for OBD2 adapters and doesn't break anything.</li>
+    </ul>
+
+    <p class="faq-q">Which OBD2 adapters work with OBD Pilot?</p>
+    <p>ELM327-based adapters made for cars manufactured after 1996. Both Bluetooth and WiFi variants are supported. Generic adapters sold under names like "OBDII", "Veepeak", "Vgate iCar", and "WiFi_OBDII" have all been tested.</p>
+
+    <p class="faq-q">Is OBD Pilot a replacement for a mechanic?</p>
+    <p>No. OBD Pilot is informational only. Always confirm any finding with a qualified mechanic before making a repair decision.</p>
+
+    <p class="faq-q">What's the difference between Pro and Bring Your Own Key?</p>
+    <ul>
+      <li><strong>Pro</strong> is a subscription (monthly or annual). You don't need to set up anything — chat and AI analysis just work.</li>
+      <li><strong>Bring Your Own Key</strong> lets you paste your own OpenAI API key in Settings → OpenAI Key. You're then billed by OpenAI directly for usage. This is hidden by default; switch on "Use my own API key" in Settings to reveal it.</li>
+    </ul>
+
+    <p class="faq-q">How do I cancel my subscription?</p>
+    <p>iOS Settings → [Your Name] → Subscriptions → OBD Pilot → Cancel Subscription. Cancellation takes effect at the end of the current billing period.</p>
+
+    <p class="faq-q">Why does the AI sometimes give wrong-sounding advice?</p>
+    <p>AI models can occasionally make mistakes, especially with vehicle-specific details. The trouble codes themselves are accurate (they come straight from your car's ECU); the AI's interpretation is best-effort. Confirm with a mechanic before any repair.</p>
+
+    <p class="faq-q">Does OBD Pilot work without an internet connection?</p>
+    <ul>
+      <li>Demo mode and basic scan + DTC database lookups work offline.</li>
+      <li>The AI chat and AI analysis features need internet.</li>
+    </ul>
+
+    <p class="faq-q">My subscription isn't showing as active — what now?</p>
+    <p>In Settings, tap "Restore Purchases" inside the paywall sheet. If it still doesn't appear, email <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> with your Apple ID purchase email and the date you subscribed.</p>
+
+    <p class="faq-q">Where is my data stored?</p>
+    <p>On your device only — diagnostic scan history, chat sessions, app preferences. Your OpenAI API key (if you provided one) is stored in the iOS Keychain. Chat requests are sent to OpenAI for processing but not stored on our servers.</p>
+
+    <p class="faq-q">How do I delete my data?</p>
+    <p>Delete the app from your iPhone — all local data is removed. To revoke your OpenAI API key, do that on OpenAI's dashboard.</p>
+
+    <h2>Bug reports &amp; feature requests</h2>
+    <p>Email <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> with subject line <code>Bug:</code> or <code>Feature:</code> and we'll get back to you. Reproducible bugs that include the info listed under "Getting help" get prioritised.</p>
+
+    <h2>Press / business inquiries</h2>
+    <p>Same address — <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. We'll route to the right inbox.</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 OBD Pilot. All rights reserved.</span>
+    <span class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
