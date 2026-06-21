@@ -32,6 +32,7 @@
       <a href="privacy.html" class="on">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="support.html">Support</a>
+      <a href="impressum.html">Impressum</a>
     </nav>
   </div>
 </header>
@@ -39,10 +40,10 @@
 <main class="doc">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective date: June 6, 2026 · Last updated: June 6, 2026</p>
+    <p class="meta">Effective date: June 6, 2026 · Last updated: June 21, 2026</p>
 
     <h2>1. Who we are</h2>
-    <p>OBD Pilot is an iOS app developed by Shashank Mallela (sole proprietor) ("we", "us"). The app reads diagnostic data from your vehicle via an OBD2 adapter and helps you understand it in plain English using AI.</p>
+    <p>OBD Pilot is an iOS app developed by Shasank Mallela ("we", "us"). The app reads diagnostic data from your vehicle via an OBD2 adapter and helps you understand it in plain language using AI.</p>
     <p>We can be reached at <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> for any privacy-related questions or requests.</p>
 
     <h2>2. What we collect</h2>
@@ -50,20 +51,24 @@
     <h3>On your device only (never sent to us)</h3>
     <ul>
       <li>Saved diagnostic scan records (trouble codes, freeze-frame snapshots, sensor data, vehicle make/model/VIN if your adapter reports it)</li>
-      <li>Chat conversations with the AI assistant</li>
-      <li>App preferences (theme, accent colour, units, car nickname)</li>
-      <li>Your OpenAI API key, if you choose to provide one (stored in the iOS Keychain)</li>
+      <li>Chat conversation IDs and any text you've typed locally before sending (the history itself is server-side; see below)</li>
+      <li>App preferences (theme, accent colour, units, car nicknames)</li>
+      <li>Your Garage of saved vehicles (nicknames + VINs)</li>
     </ul>
-    <h3>Sent to OpenAI when you use AI features</h3>
+    <h3>Sent to our backend proxy (<code>scanai-proxy.vercel.app</code>) on every AI request — both Pro and free tier</h3>
     <ul>
-      <li>The current question or photo you send to the chat</li>
-      <li>The trouble codes, freeze-frame data, and live vehicle readings needed to answer your question</li>
-      <li>A short rolling history of your recent chat with the AI</li>
+      <li>The chat or analysis request body itself: your question, any photo you attached, the relevant trouble codes, freeze-frame data, live vehicle readings, and your vehicle's identity (year/make/model and VIN if known)</li>
+      <li>A session identifier so the AI agent can keep multi-turn context</li>
+      <li><strong>If you are a Pro subscriber:</strong> an Apple-signed StoreKit transaction token that proves your subscription is active. We do <strong>not</strong> receive your name, email, Apple ID, or any personally identifying account info from Apple.</li>
+      <li><strong>If you are on the free tier:</strong> a per-install device identifier (derived from Apple's <code>identifierForVendor</code>) and a fresh Apple DeviceCheck token. We use these only to enforce the monthly free quota (3 AI diagnoses per device per month) and to deter abuse. They do not identify you personally.</li>
     </ul>
-    <h3>Sent to our backend proxy (Pro subscribers only)</h3>
+    <h3>Sent to OpenAI (via our proxy, server-side)</h3>
     <ul>
-      <li>An Apple-signed transaction token proving your subscription is active (we do <strong>not</strong> receive your name, email, Apple ID, or any personally identifying account info from Apple)</li>
-      <li>The chat / analysis request itself, which we then forward to OpenAI on your behalf</li>
+      <li>The request our proxy forwards on your behalf — the same chat / analysis content described above. Our proxy does not log request bodies. OpenAI's privacy policy governs what they then do with it (see section 4).</li>
+    </ul>
+    <h3>Sent to NHTSA vPIC (US National Highway Traffic Safety Administration), only when your adapter reports a VIN</h3>
+    <ul>
+      <li>The VIN itself, used to decode the year/make/model so the AI can give vehicle-specific answers. No personal information accompanies the request.</li>
     </ul>
     <h3>Sent to Apple</h3>
     <ul>
@@ -81,27 +86,28 @@
     <p>This is also reflected in the app's Privacy Manifest (<code>PrivacyInfo.xcprivacy</code>) bundled with each release.</p>
 
     <h2>4. Why your data goes to OpenAI</h2>
-    <p>OBD Pilot uses OpenAI's API to translate cryptic diagnostic codes into useful, conversational advice. OpenAI processes the request, returns an answer, and (per OpenAI's API policy at the time of writing) does <strong>not</strong> use API content to train their models.</p>
+    <p>OBD Pilot uses OpenAI's API (called server-side by our proxy) to translate cryptic diagnostic codes into useful, conversational advice. OpenAI processes the request, returns an answer, and (per OpenAI's API policy at the time of writing) does <strong>not</strong> use API content to train their models.</p>
     <p>You can read OpenAI's current API privacy and data handling policy at <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">openai.com/policies/api-data-usage-policies</a>.</p>
     <p>If you prefer not to use AI features, you can:</p>
     <ul>
       <li>Skip the chat tab and use the app for basic scan-and-display only</li>
-      <li>Use Demo Mode, which never sends any data to OpenAI</li>
+      <li>Use Demo Mode, which never sends any data to our proxy or OpenAI</li>
     </ul>
 
     <h2>5. Our sub-processors</h2>
     <table>
       <thead><tr><th>Service</th><th>Purpose</th><th>What they see</th></tr></thead>
       <tbody>
-        <tr><td>OpenAI</td><td>AI answers and image analysis</td><td>The text/photo of your question + the diagnostic context needed to answer it</td></tr>
-        <tr><td>Vercel</td><td>Hosts our proxy for Pro users</td><td>Forwards your request to OpenAI; does not log request bodies or persist user data</td></tr>
-        <tr><td>Apple</td><td>Subscription management</td><td>Subscription transactions and payment details (per Apple's own policies)</td></tr>
+        <tr><td>Vercel</td><td>Hosts our proxy (<code>scanai-proxy.vercel.app</code>) for all AI requests — Pro and free tier alike</td><td>The request body in transit (chat or analysis content, vehicle context, session id, plus your StoreKit token or DeviceCheck token depending on tier). Stateless: does not log request bodies or persist user data.</td></tr>
+        <tr><td>OpenAI</td><td>AI answers and image analysis</td><td>The text/photo of your question + the diagnostic context needed to answer it (forwarded from our proxy, server-side)</td></tr>
+        <tr><td>NHTSA vPIC</td><td>Decodes VIN → year/make/model so the AI can give vehicle-specific answers</td><td>Just the VIN, when your adapter reports one</td></tr>
+        <tr><td>Apple</td><td>Subscription management + free-tier abuse deterrence (DeviceCheck)</td><td>Subscription transactions and payment details per Apple's own policies; DeviceCheck tokens are issued by Apple at our request and validated server-side</td></tr>
       </tbody>
     </table>
 
     <h2>6. How long data is kept</h2>
     <ul>
-      <li><strong>On-device data:</strong> stays on your device until you delete the app or use the in-app delete actions (Reports → swipe to delete, New Chat to clear history, Settings → Clear API Key, etc.).</li>
+      <li><strong>On-device data:</strong> stays on your device until you delete the app or use the in-app delete actions (Reports → swipe to delete, New Chat to clear history, etc.).</li>
       <li><strong>OpenAI:</strong> OpenAI retains API request data for up to 30 days for abuse monitoring, then deletes it. See OpenAI's policy linked above.</li>
       <li><strong>Vercel proxy:</strong> stateless; nothing is logged or persisted.</li>
       <li><strong>Apple subscription data:</strong> retained per Apple's own policies.</li>
@@ -111,9 +117,9 @@
     <p>You can at any time:</p>
     <ul>
       <li><strong>Stop using the app:</strong> delete it from your device and all on-device data is removed.</li>
-      <li><strong>Delete your own API key</strong> in Settings → OpenAI Key.</li>
+      <li><strong>Reset your chat session</strong> in the app (Chat tab → new chat). This also signals our proxy to forget the session-side context.</li>
       <li><strong>Cancel your subscription</strong> via iOS Settings → [Your Name] → Subscriptions.</li>
-      <li><strong>Request access, correction, or deletion</strong> of any data we hold about you by emailing <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. Note that because OBD Pilot doesn't have user accounts and we don't store your data on our servers, there is typically nothing on our end to delete — but we will confirm that in writing.</li>
+      <li><strong>Request access, correction, or deletion</strong> of any data we hold about you by emailing <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. Note that because OBD Pilot doesn't have user accounts and our proxy doesn't persist your data, there is typically nothing on our end to delete — but we will confirm that in writing.</li>
     </ul>
     <p>If you are in the EU/UK, you also have the rights afforded under the GDPR — including access, rectification, erasure, restriction, portability, and objection — and the right to lodge a complaint with your local data protection authority. If you are in California, you have the rights described under the CCPA, which we respect for all users globally.</p>
 
@@ -139,6 +145,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="support.html">Support</a>
+      <a href="impressum.html">Impressum</a>
     </span>
   </div>
 </footer>

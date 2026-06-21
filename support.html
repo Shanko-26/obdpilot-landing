@@ -32,6 +32,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="support.html" class="on">Support</a>
+      <a href="impressum.html">Impressum</a>
     </nav>
   </div>
 </header>
@@ -39,7 +40,7 @@
 <main class="doc">
   <div class="wrap">
     <h1>Support</h1>
-    <p class="meta">Last updated: June 6, 2026</p>
+    <p class="meta">Last updated: June 21, 2026</p>
 
     <div class="callout">
       The fastest way to reach us is email: <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a>. We typically respond within 1–2 business days.
@@ -72,10 +73,10 @@
     <p class="faq-q">Is OBD Pilot a replacement for a mechanic?</p>
     <p>No. OBD Pilot is informational only. Always confirm any finding with a qualified mechanic before making a repair decision.</p>
 
-    <p class="faq-q">What's the difference between Pro and Bring Your Own Key?</p>
+    <p class="faq-q">What's the difference between Pro and the free tier?</p>
     <ul>
-      <li><strong>Pro</strong> is a subscription (monthly or annual). You don't need to set up anything — chat and AI analysis just work.</li>
-      <li><strong>Bring Your Own Key</strong> lets you paste your own OpenAI API key in Settings → OpenAI Key. You're then billed by OpenAI directly for usage. This is hidden by default; switch on "Use my own API key" in Settings to reveal it.</li>
+      <li><strong>Pro</strong> is a subscription (monthly or annual). Unlimited AI chat, unlimited diagnoses, full reports (verdict + causes + recommended actions), AI-enhanced PDFs, and photo / dashboard diagnosis.</li>
+      <li><strong>Free tier</strong> gets 3 AI diagnoses per device per month and a redacted version of the report (verdict + summary; causes and recommended actions are blanked out). Quotas reset monthly. You don't need to sign in to use the free tier — we use Apple's DeviceCheck to count requests, not an account.</li>
     </ul>
 
     <p class="faq-q">How do I cancel my subscription?</p>
@@ -94,10 +95,10 @@
     <p>In Settings, tap "Restore Purchases" inside the paywall sheet. If it still doesn't appear, email <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> with your Apple ID purchase email and the date you subscribed.</p>
 
     <p class="faq-q">Where is my data stored?</p>
-    <p>On your device only — diagnostic scan history, chat sessions, app preferences. Your OpenAI API key (if you provided one) is stored in the iOS Keychain. Chat requests are sent to OpenAI for processing but not stored on our servers.</p>
+    <p>On your device only — diagnostic scan history, chat sessions, app preferences, and your Garage of saved vehicles. AI chat and analysis requests are sent through our proxy at <code>scanai-proxy.vercel.app</code> to OpenAI for processing. Our proxy is stateless — it doesn't log request bodies. OpenAI retains API request data for up to 30 days for abuse monitoring, then deletes it (per their API policy).</p>
 
     <p class="faq-q">How do I delete my data?</p>
-    <p>Delete the app from your iPhone — all local data is removed. To revoke your OpenAI API key, do that on OpenAI's dashboard.</p>
+    <p>Delete the app from your iPhone — all local data is removed. You can also reset an individual chat conversation in the Chat tab (new chat), which signals our proxy to forget that session's context immediately.</p>
 
     <h2>Bug reports &amp; feature requests</h2>
     <p>Email <a href="mailto:hello@obdpilot.com">hello@obdpilot.com</a> with subject line <code>Bug:</code> or <code>Feature:</code> and we'll get back to you. Reproducible bugs that include the info listed under "Getting help" get prioritised.</p>
@@ -115,6 +116,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="support.html">Support</a>
+      <a href="impressum.html">Impressum</a>
     </span>
   </div>
 </footer>
